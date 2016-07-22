@@ -1,9 +1,7 @@
 <%= form_for Message.new do |f| %>
   <%= f.text_field :message %>
-  <%= f.submit %>
+<%= f.submit %>
 <% end %>
-<ul>
-  <% @messages.each do |message| %>
-    <li><%= message.message %></li>
-  <% end %>
-</ul>
+<div id="messages">
+  <%= render 'message_list', messages: @messages %>
+</div>

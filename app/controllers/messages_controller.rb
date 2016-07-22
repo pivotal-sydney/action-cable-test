@@ -4,7 +4,8 @@ class MessagesController < ApplicationController
   end
 
   def create
-    @message = Message.create!(params.require(:message).permit(:message))
+    Message.create!(params.require(:message).permit(:message))
+    MessagesChannel.broadcast
 
     redirect_to messages_url
   end
