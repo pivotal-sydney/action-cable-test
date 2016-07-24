@@ -1,0 +1,8 @@
+---
+applications:
+  - name: actioncable
+    memory: 128M
+    command: bundle exec rake db:migrate && bundle exec rails s -p $PORT -e $RAILS_ENV
+    services:
+      - postgres-actioncable
+      - redis-actioncable
